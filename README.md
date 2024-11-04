@@ -20,11 +20,17 @@ hataları minimuma indirir ve müşteri memnuniyetini artırır.
 Projenin Temel Özellikleri
 
 
+
 -Müşteri Hesap Yönetimi: Müşterilerin banka hesaplarını görüntüleyebilme, bakiye kontrolü yapabilme ve hesap hareketlerini inceleyebilme imkanı.
+
 -Para Transferleri: Müşteriler, farklı bankalar ya da hesaplar arasında kolayca para transferi yapabilir. Havale, EFT gibi işlemler de desteklenir.
+
 -Kredi İşlemleri: Müşteriler, ihtiyaç kredisi, konut kredisi gibi çeşitli kredi başvurularını dijital ortamda yapabilir. Onaylanan krediler için geri ödeme planı oluşturulur.
+
 -Kart İşlemleri: Kart başvurusu, kart harcama takibi ve ekstre işlemleri gibi hizmetler sunulur.
+
 -Fatura ve Otomatik Ödeme Talimatları: Fatura ödeme, otomatik ödeme talimatı verme gibi işlemler sayesinde müşterilerin düzenli ödemeleri kolaylaştırılır.
+
 -Destek Talepleri ve Müşteri Hizmetleri: Müşteriler, bankacılık hizmetleriyle ilgili sorunlarını ve sorularını destek talepleri oluşturarak iletebilir.
 
 
