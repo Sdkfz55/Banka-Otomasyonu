@@ -1,4 +1,5 @@
-Banka Otomasyonu Veritabanı
+<h1>Banka Otomasyonu Veritabanı</h1>
+
 
 -220260069 İsmail Turan
 
@@ -9,7 +10,8 @@ Banka Otomasyonu Veritabanı
 
 
 
-Bankacılık Otomasyonu Projesi Tanıtımı
+<h2>Bankacılık Otomasyonu Projesi Tanıtımı</h2>
+
 
 
 Bankacılık otomasyonunun amacı, bankacılık işlemlerini daha hızlı, güvenilir ve verimli hale getirmektir. 
@@ -17,7 +19,7 @@ Bu sistem, hem müşterilere hem de banka çalışanlarına kapsamlı hizmetler 
 hataları minimuma indirir ve müşteri memnuniyetini artırır.
 
 
-Projenin Temel Özellikleri
+<h2>Projenin Temel Özellikleri</h2>
 
 
 
@@ -33,35 +35,48 @@ Projenin Temel Özellikleri
 
 -Destek Talepleri ve Müşteri Hizmetleri: Müşteriler, bankacılık hizmetleriyle ilgili sorunlarını ve sorularını destek talepleri oluşturarak iletebilir.
 
+<h3>Varlıklar ve Nitelikleri</h3>
 
 
-Veri tabanı Tabloları ve İlişkiler
+| Varlık      | Nitelikler      |
+|----------------|----------------|
+| Kullanıcılar      | MusteriID(PK), Ad, Soyad, TC, Tel, E-mail, Sifre, OlusturmaTarihi  |
+| Hesaplar     |HesapNo(PK), MusteriID(FK), SubeId(FK), Bakiye, HesapTuru, Durum, OlusturmaTarihi, Iban  |
+| Giris     | GirisID(PK), MusteriID(FK), GirisTarihi, IPAdresi, Basarilimi      |
+| Destek     | DestekID(PK), MusteriID(FK), Konu, Aciklama, Durum, OlusturmaTarihi      |
+| Şube Bilgileri     | SubeId(PK), SubeAdi, Adres, Telefon, E-Posta      |
+| İslemler      |islemID(PK), HesapNo(FK), islemTuru, Tutar, Aciklama, Tarih, HavaleHesapNo      |
+| KrediBasvuru   | BasvuruID(PK), MusteriID(FK), KrediTuru, Miktar, Durum, BasvuruTarihi, OnayTarihi      |
+| Odeme     | FaturaID(PK), FaturaNo, MusteriID(FK), Tutar, FaturaTarihi, SonOdemeTarihi, OdemeDurumu      |
+| Kartlar      | kartID(PK), MusteriId(FK), KartNo, KartTuru, SonkullanmaTarihi, CVV     |
+| KrediKart    | kredikartID(PK), KartID(FK), limit, Borc, kullanılabilir_limit, HesapKesimTarihi  |
+| Bankakart    | BankakartID(PK), KartID(FK), Bakiye     |
+| KrediEkstre    | KrediEkstre(PK), KrediKartId(FK), Donem ,ToplamHarcama ,AsgariOdemeTutari, SonOdemeTarihi,Durum     |
+|Geri Odeme    | GeriOdemeID(PK), KrediID(FK), TaksitNo, OdemeTarihi, OdemeTutari, OdendiMi     |
 
-
--Kullanıcı Tablosu : Müşterilerle ilgili bilgiler tutulur.
-
--Şube Bilgileri Tablosu : Banka şubeleri bilgileri tutulur.
-
--Destek Tablosu : Müşterilerin destek talepleri bu tabloda tutulur. Kullanıcı Tablosundaki MüşteriId foreign key dir.
-
--Ödeme Tablosu : Müşterilerin yaptıkları fatura ödemeleri burada tutulur. Kullanıcı Tablosundaki MüşteriId foreign key dir.
-
--Giriş Tablosu : Kullanıcıların yaptıkları giriş bilgileri(tarih, ip adresi, başarı durumu) burada tutulur. Kullanıcı Tablosundaki MüşteriId foreign key dir.
-
--Hesaplar Tablosu : Müşterilerin sahip oldukları hesaplar(vadeli, vadesiz, kredi) burada tutulur. Kullanıcı tablosundan MusteriId, Şube Bilgileri tablosundan ŞubeID foreign key dir.
-
--İşlemler Tablosu : Müşteriler yaptıkları para işlemleri(para yatırma, para çekme,transfer) burada tutulur.Hesaplar tablosundan HesapID foreign key dir.
-
--Kartlar Tablosu : Müşterinin sahip olduğu kartlarla ilgili bilgiler tutulur. Kullanıcı Tablosundaki MüşteriId foreign key dir.
-
--Kredi Ekstre Tablosu : Kartın ekstre bilgileri bulunur. Kartlar tablosundaki KartId foreign key dir.
-
--Kredi başvuru Tablosu : Müşterinin yaptığı kredi bilgileri ile ilgili kredi başvuruları burada tutulur. Kullanıcı Tablosundaki MüşteriID foreign key dir.
-
--Kredi Geri Ödeme Tablosu : Müşterinin Kredi ödeme bilgileri burada tutulur. KrediBaşvuru tablosundaki KrediId foreign keydir.
-
--Bildirim tablosu : Müşteriye gönderilen bildirimlerin tutulduğu tutulduğu tablodur. Kullanıcı Tablosundaki MüşteriId foreign key dir.
+<h3>İlişkiler</h3>
 
 
 
-![Son](https://github.com/user-attachments/assets/24aa99f0-1765-4db8-9dff-9368694b3dd1)
+| Varlıklar      | İlişki       | Açıklama       |
+|----------------|----------------|----------------|
+| Kullanıcılar-Hesaplar      |  1-n   | Bir Kullanıcın birden fazla Hesabı(vadeli hesap, vadesiz hesap) olabilir.      |
+| Kullanıcılar-Destek      | 1-n      | Bir Kullanıcı birden fazla Destek talebi gönderebilir. |
+| Kullanıcılar-Giris      | 1-n      | Bir kullanıcı birden fazla giris yapabilir    |
+| Kullanıcılar-Kartlar      | 1-n      | Bir kullanıcı birden fazla karta(kredi kartı,banka kartı) sahip olabilir      |
+| Kullanıcılar-KrediBasvuru      | 1-n      | Bir kullanıcı birden fazla kredi başvurusu(ihtiyac, konut, taşıt) yapabilir.      |
+| kullanıcılar-Odeme     | 1-n      | Bir kullanıcı birden fazla fatura odeme oluşturabilir.     |
+| SubeBilgileri-Hesaplar      | 1-n     | Bir hesap sadece bir banka şubesini bağlı olabilir.      |
+| Hesaplar-islemler      | 1-n      | Bir Hesaptan birden fazla işlem yapılabilir.     |
+| KrediBasvuru-GeriOdeme     | 1-1      | Bir kredi başvursunda sadece bir geri ödeme tablosu bulunur.      |
+| Kartlar-KrediKart   |   1-1    | Her kartın içinde en fazla bir kredi kartı bulunur.    |
+| Kartlar-BankaKart     | 1-1     | Her kartın içinde en fazla bir banka kartı bulunur.     |
+| KrediKart-KrediEkstre     | 1-1      | Bir kredi kartının birkredi ekstresi olabilir.    |
+
+
+
+
+
+
+
+![Banka](https://github.com/user-attachments/assets/7ea445bb-9383-481d-9393-f80f07bcf223)
