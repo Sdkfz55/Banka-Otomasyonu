@@ -71,7 +71,7 @@ hataları minimuma indirir ve müşteri memnuniyetini artırır.
 | KrediBasvuru-GeriOdeme     | 1-1      | Bir kredi başvursunda sadece bir geri ödeme tablosu bulunur.      |
 | Kartlar-KrediKart   |   1-1    | Her kartın içinde en fazla bir kredi kartı bulunur.    |
 | Kartlar-BankaKart     | 1-1     | Her kartın içinde en fazla bir banka kartı bulunur.     |
-| KrediKart-KrediEkstre     | 1-1      | Bir kredi kartının birkredi ekstresi olabilir.    |
+| KrediKart-KrediEkstre     | 1-1      | Bir kredi kartının bir kredi ekstresi olabilir.    |
 
 
 
